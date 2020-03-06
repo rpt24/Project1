@@ -14,7 +14,7 @@ public class Project1Main
 		String st;
 		int dateCount = 0;
 		int scoreCount = 0;
-		int scoreMarker = 0;
+		int scoreDay = 0;
 		
 		while ((st = br.readLine()) != null) 
 		{
@@ -22,10 +22,10 @@ public class Project1Main
 			  dates[dateCount] = st;
 			  dateCount++;
 		  } else if (scoreCount < 24) {
-			  scores[scoreMarker][scoreCount] = Double.valueOf(st);
+			  scores[scoreDay][scoreCount] = Double.valueOf(st);
 			  scoreCount++;
 			  if (scoreCount > 23) {
-				  scoreMarker++;
+				  scoreDay++;
 				  scoreCount = 0;
 			  }
 		  }
