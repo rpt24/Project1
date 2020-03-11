@@ -5,7 +5,10 @@ public class Project1Main
 
 	public static void main(String[] args) throws Exception
 	{
-		File file = new File("/Users/ryanthornton/eclipse-workspace/Project1/data/Scores.txt"); 
+		/* Uncomment if developing in Windows */
+		File file = new File("C:\\Users\\rptho\\git\\Project1\\data\\Scores.txt");
+		/* Uncomment if developing in MacOS */
+		//File file = new File("/Users/ryanthornton/eclipse-workspace/Project1/data/Scores.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
 		
 		String[] dates = new String[5];
@@ -30,15 +33,12 @@ public class Project1Main
 			  }
 		  }
 		}
-
-		for (int i = 0; i < 5; i++) {
-			System.out.println(dates[i]);
-			for (int j = 0; j < 24; j++) {
-				System.out.println(scores[i][j]);
-			}
-		}
-		
 		br.close();
+		
+		Scores scoreData = new Scores(dates, scores);
+		scoreData.calculateMeans();
+		
+		scoreData.printData();
 	}
 
 }
