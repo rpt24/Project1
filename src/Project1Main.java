@@ -6,9 +6,9 @@ public class Project1Main
 	public static void main(String[] args) throws Exception
 	{
 		/* Uncomment if developing in Windows */
-		File file = new File("C:\\Users\\rptho\\git\\Project1\\data\\Scores.txt");
+		//File file = new File("C:\\Users\\rptho\\git\\Project1\\data\\Scores.txt");
 		/* Uncomment if developing in MacOS */
-		//File file = new File("/Users/ryanthornton/eclipse-workspace/Project1/data/Scores.txt");
+		File file = new File("/Users/ryanthornton/eclipse-workspace/Project1/data/Scores.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
 		
 		String[] dates = new String[5];
@@ -37,6 +37,7 @@ public class Project1Main
 		
 		Scores scoreData = new Scores(dates, scores);
 		scoreData.calculateMeans();
+		scoreData.calculateSD();
 		
 		scoreData.printData();
 	}

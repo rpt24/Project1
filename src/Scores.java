@@ -1,3 +1,4 @@
+import java.lang.Math;
 
 public class Scores 
 {
@@ -22,6 +23,23 @@ public class Scores
 			}
 			means[i] = tempSum / 24;
 			tempSum = 0;
+		}
+	}
+	
+	public void calculateSD()
+	{
+		double sum = 0;
+		double var1 = 0;
+		
+		for(int i = 0; i < 5; i++) {
+			for (int j = 0; j < 24; j++) {
+				var1 = (scores[i][j] - means[i]);
+				var1 = var1*var1;
+				sum += var1;
+			}
+			sum = sum /24;
+			sd[i] = Math.sqrt(sum);
+			sum = 0;
 		}
 	}
 	
@@ -57,6 +75,10 @@ public class Scores
 		
 		/* print the standard deviations */
 		System.out.printf("%-15s", "SD");
+		for(int i = 0; i < 5; i++) {
+			System.out.printf("%-15.2f", sd[i]);
+		}
+		System.out.print("\n");
 	}
 	
 }
